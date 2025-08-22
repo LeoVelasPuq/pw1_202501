@@ -1,0 +1,388 @@
+*{
+    /* box-sizing: content-box; */
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+p{
+    line-height: 1.5;
+}
+h1{
+    color: #fff;
+}
+/* h3{
+    color: chocolate;
+    background-color: darkgreen;
+} */
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+}
+
+header div{
+    display: flex;
+    align-items: center;
+}
+
+header div img{
+    display: block;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: .1rem .5rem;
+}
+header nav{
+width: 100%;
+}
+
+header nav ul{
+    list-style: none;
+    padding: 0px;
+    gap: 0.5rem;
+}
+header nav ul li{
+    width: 100%;
+}
+header nav ul li a{
+    display: inline-block;
+    color: #fff;
+    width: 100%;
+    padding: .75rem .75rem;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    /* text-align: center; */
+    /* padding: 0.75rem 1.5rem;
+    color: white; */
+    /* margin: .75rem 1.5rem .75rem 1.5rem;
+    margin: .75rem 1.5rem;
+    margin: .75rem; */
+}
+
+header nav ul li a:hover{
+    background-color: beige;
+    color: #000;
+}
+
+.contenedor{
+    margin: .5rem auto;
+    /* no usar text-align: center; es muy MALA PRÁCTICA */
+    max-width: 1024px;
+    padding: 0.5rem;
+    border: thin solid black;
+    /* overflow: auto; */
+}
+
+.cardContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card{
+    overflow: hidden;
+    width: 320px;
+    border: 1px solid #000;
+    border-radius: 9px;
+    box-shadow: 3px 3px 5px #000;
+}
+.card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card .cardBody{
+    padding: 0.5rem;
+}
+.card .cardFooter button{
+    background-color: darkcyan;
+    color: #fff;
+    width: 100%;
+    border: 1px solid darkslateblue;
+    padding: 0.75rem 0.75rem;
+}
+
+/* Unidades de Longitud 
+
+Absolutas
+1px
+1cm
+1in
+1yd
+
+Relativas
+100%
+100vh
+100vw
+1em
+1rem (root em) (estandarizado a 16px la fuente raiz HTML, se puede cambiar igual)
+
+Resumen:
+REM: Esta unidad se basa en el elemento raíz (generalmente la etiqueta <html>). No importa qué más suceda en la página, tu tamaño se mantendrá consistente. (Más efectivo esto)
+
+EM: Esta unidad busca orientación en su elemento padre. Si el elemento padre cambia, el tamaño seguirá ese cambio.
+
+*/
+/* Aqui una prueba de em */
+ .demoEMRem{
+    font-size: 1em; /*16px*/
+    /* font-size: 2em; */ /*32px*/
+}
+.demoEMRem p{
+    font-size: 1em; /*respecto al elemento padre = 16px*/
+    /* font-size: 2em; */ /*si cambia el elemento padre a 2em=32px, este aumenta el doble = 64px*/
+} 
+
+.smallTags{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0px;
+}
+
+.smallTags li{
+    margin: 1rem 0rem;
+    /* width: 200px; */
+}
+
+.smallTags li div{
+    background-color: #9f9c02;
+    padding: .8rem .5rem;
+    border: 1px solid #575501;
+}
+.smallTags li div img, .smallTags li div span{
+    display: block;
+}
+
+
+/* Responsive Design */
+.hero-panel{
+    position: relative;
+    width: 100%;
+    height: 80vh;
+}
+
+.hero-panel img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.hero-panel div.q1{
+    top: 25%;
+    left: 25%;
+}
+.hero-panel div.q2{
+   top: 25%; 
+   left: 75%;
+   
+}
+.hero-panel div.q3{
+    top: 75%;
+    left: 25%;
+}
+.hero-panel div.q4{
+    top: 75%;
+    left: 75%;
+}
+
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;  
+    background-color: steelblue;
+    background-color: #4682b4;
+    padding: .75rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 3px #1c3448;
+}
+
+
+
+.hero-panel div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(255, 255, 255, .7);
+    padding: 1.5rem;
+    border: 1px solid #000;
+    border-radius: .5rem;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+/* Nota: */
+/* Cuatro valores coordenadas: top right bottom left */
+
+/* Para posicionar cualquier elemento de forma absoluta, los valores de referencia van hacer buscados a partir del "Plano carteciano superior inmediato declarado" */
+/* 
+- static (valor por defecto)
+- relative (El elemento se coloca relativo al flujo normal)
+- absolute (El elemento se coloca respecto a su contenedor posicionado mas cercano)
+- fixed (El elemento se coloca respecto al viewport)
+- sticky (Es una combinación entre relative y fixed) */
+
+/*Al tener un elemento posicionado podemos moverlo en los 3 ejes y corresponden a cinco propiedades:
+
+↔️ Eje X:
+right(mover el elemento desde la parte derecha hacia la izquierda)
+left(mover el elemento desde la parte izquierda hacia la derecha)
+↕️ Eje Y:
+top (mover el elemento desde la parte superior hacia la inferior)
+bottom(mover el elemento desde la parte inferior hacia la superior)
+🔄 Eje Z:
+z-index(cuando dos o mas elementos se solapan, podemos decidir cual aparece primero y cual por detrás de el). */
+
+
+/* Standard Breakpoints for Responsive Design
+
+1.- Mobile Devices.
+    Extra Small (Portrait)--> 320px - 480px
+    Small Mobile (Landscape) --> 481px - 600px
+
+2.- Tablets.
+    Small Tablets (Portrait)--> 601px - 768px
+    Large Tablets (Landscape)--> 769px - 1024px
+
+3.- Laptops and Small Desktops.
+    Small Desktops and Laptops -->1025px - 1280px
+
+4.- Large Desktops.
+    Large Desktops and High-Resolution Screens --> 1281px - 1440px
+
+5.- Extra-Large Screens
+    Extra-Large Desktops-->1441px and Up
+    Listed most used in 2025.
+    1920x1080
+    360x800
+    390x844
+    393x873
+    1366x768
+    1536x864
+*/
+
+/* Media Queries 
+Son una técnica de CSS3 que permite aplicar estilos específicos a un sitio web solo cuando ciertas condiciones del dispositivo (como el ancho de la pantalla, altura u orientación) se cumplen.
+1.- Se inicia así-->   @media
+2.- Características del medio. Dentro de la regla, se especifican las características del dispositivo que se quieren evaluar, como:
+- Ancho y altura de la ventana gráfica: (viewport). 
+- Orientación: (horizontal o vertical). 
+- Resolución: de la pantalla. 
+- Tipo de medio: (pantalla, impresión). 
+******************************
+
+
+a.- La estructura básica de una media query es:
+@media (condición) {
+    Estilos aquí
+}
+
+b.- La condición puede ser, por ejemplo, el ancho de la pantalla:
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+c.-Estilos generales (para dispositivos grandes) 
+
+@media (max-width: 1024px) {
+    Estilos para tablets 
+}
+
+@media (max-width: 768px) {
+    Estilos para móviles en modo horizontal
+}
+
+@media (max-width: 480px) {
+    Estilos para móviles en modo vertical
+}
+
+****************************
+
+RESUMEN:
+Media Queries
+Consulta Metadata del dispositivo:
+
+- min-width
+- disposition
+- scale
+- density
+
+*/
+
+/* *************************** */
+
+
+
+/* Responsive Tablet */
+
+@media (min-width:768px) {
+    header{
+      background-color: #777;  
+    }
+
+header nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+header nav ul li{
+    width: auto;
+}
+
+header nav ul li a{
+    border-bottom: none;
+}
+
+}
+/* *************************** */
+
+
+
+/* Responsive Desktop */
+@media(min-width:1024px){
+    header{
+        background-color: #510000;
+        flex-direction: row;
+    }
+    header nav{
+        width: auto;
+    }
+    header nav ul li{
+        width: auto;
+    }
+}
+/* *************************** */
+
+
+
+/* Responsive Desktop Gamer */
+
+@media(min-width:2300px){
+    header{
+        background-color: skyblue;
+    }
+}
+/* ************************************************* */
+
+/* RESUMEN DE LA CLASE COMO HACER VÁLIDA UNA HOJA DE ESTILLO CSS RESPONSIVE DESIGN
+1.- Tener configurado el Meta del Viewport en el archivo html
+2.- Uso de esquema Mobile first para luego trabjar para las otras configuraciones.
+3.- Definimos las reglas a través de @media query
+4.- Para saber cuales el mobile, serán las reglas de raiz en el archibo css.
+
+
+*/
